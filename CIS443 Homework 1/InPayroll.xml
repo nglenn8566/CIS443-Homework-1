@@ -1,0 +1,20 @@
+﻿<employees>
+  <employee>
+    <firstName>Nick</firstName>
+    <lastName>Glenn</lastName>
+    <hours>40</hours>
+    <payRate>20</payRate>
+    <sumAnnualEarned>20000</sumAnnualEarned>
+    <maritalStatus>Single</maritalStatus>
+    <numAllowances>1</numAllowances>
+  </employee>
+  <employee>
+    <firstName>Bob</firstName>
+    <lastName>Boberson</lastName>
+    <hours>70</hours>
+    <payRate>90</payRate>
+    <sumAnnualEarned>200000</sumAnnualEarned>
+    <maritalStatus>Single</maritalStatus>
+    <numAllowances>1</numAllowances>
+  </employee>
+</employees>
