@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Windows.Forms;
+using System.Xml;
 namespace CustomerMaintenance
 {
     public static class Validator
@@ -53,6 +54,22 @@ namespace CustomerMaintenance
                 return false;
             }
             return true;
+        }
+        public static bool IsNotEmpty(XmlText input)
+        {
+            string date = DateTime.Today.ToShortDateString();
+            XmlWriter xmlOut = XmlWriter.Create($"OutPayrollError{date}.xml");
+            xmlOut.WriteStartElement("error");
+            xmlOut.WriteString(input.Value);
+            //check field value
+            //if ()
+            //{
+            //return true;
+            //}
+            //else{
+            //return false;
+            //}
+            return false;
         }
     }
 }

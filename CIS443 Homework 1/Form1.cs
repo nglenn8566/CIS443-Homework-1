@@ -24,8 +24,6 @@ namespace CIS443_Homework_1
         decimal grossPay;
         decimal stateTax;
         decimal ficaTax;
-        //decimal ssTax;
-        //decimal medicareTax;
         decimal fedHoldingTax;
         decimal netPay;
         const decimal overTime = 1.5m;
@@ -45,16 +43,18 @@ namespace CIS443_Homework_1
         private void btnCalculate_Click(object sender, EventArgs e)
         {
            doc.Load("InPayroll.xml");
+            //xml reader is another option
             XmlNode root = doc.FirstChild;
 
             //Display the contents of the child nodes.
             if (root.HasChildNodes)
             {
+                
                 for (int i = 0; i < root.ChildNodes.Count; i++)
                 {
                     if (root.ChildNodes[i].HasChildNodes)
                     {
-                        Console.WriteLine(root.ChildNodes[i].Value);
+                       
                         for (int y = 0; y < root.ChildNodes[i].ChildNodes.Count; y++)
                         {
                             if(root.ChildNodes[i].ChildNodes[y].Name == "firstName")
@@ -94,11 +94,17 @@ namespace CIS443_Homework_1
                         stateTax = calcStateTax(grossPay);
                         ficaTax = calcSsTax(grossPay) + calcMedicareTex(grossPay);
                         fedHoldingTax = calcFedTax(numAllowances, maritalStatus, grossPay);
+                        netPay = grossPay - stateTax - ficaTax - fedHoldingTax;
+                        Console.WriteLine("net pay " +netPay);
+                        Console.WriteLine("gross pay " + grossPay);
+                        Console.WriteLine("fica tax " +ficaTax);
+                        Console.WriteLine("fed holding tax " +fedHoldingTax);
+                        Console.WriteLine("State tax " +stateTax);
+
                     }
 
                 }
             }
-            //grossPay = calcGrossPay(10m, 16m);
         }
   
         private Decimal calcGrossPay(Decimal hours, Decimal rate)
